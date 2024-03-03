@@ -1,0 +1,81 @@
+/* style.css */
+/* style.css */
+
+/* Header styling */
+/* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ce4141;
+    padding: 10px 20px;
+} */
+body{
+    background-color: #e0e0e0;
+}
+.header {
+    /* background-color: #333; */
+    width: 50%;
+    color: rgb(33, 31, 31);
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 19px;
+    background: #e0e0e0;
+    box-shadow:  6px 6px 12px #c1c1c1, -6px -6px 12px #ffffff;
+  }
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Untuk membuat gambar menjadi lingkaran */
+    object-fit: cover; /* Untuk memastikan gambar penuh di dalam lingkaran */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #1d1a1a;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #2a322a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #212b22;
+}
+.radio-group {
+    margin-top: 20px;
+}
+.radio-item {
+    margin-bottom: 10px;
+}

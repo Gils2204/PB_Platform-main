@@ -1,0 +1,72 @@
+body{ line-height: 1;
+}
+ol,ul{
+    list-style: none;
+}
+blockquote,q{
+    quotes: none;
+}
+blockquote::before,blockquote::after
+q::before,q::after{
+    content: '' ;
+    content: none;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*style css*/
+
+body{
+    font : 16px/28px arial, sans-serif;
+    background-color: red;
+    color : black;
+}
+
+.container{
+    width: 800px;
+    margin: auto;
+    background-color: wheat;
+}
+
+.header{
+    padding: 20px;
+    padding-bottom: 5px;
+}
+
+header.judul{
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+ul li{
+    display: inline-block;
+    padding: 5px;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+a{
+    text-decoration: none;
+    color : black;
+}
+.hero{
+    height : 400px;
+    background-image: url(https://i.pinimg.com/originals/cc/0f/66/cc0f662060f740e63a509244cb8fe038.png);
+    background-size: cover;
+    background-position: 0 -100px;
+}
+
+.content{
+    padding: 20px;
+}
+
+content .h2{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+content .Penulis {
+    font-size: 14px;
+    margin-top: -3px;
+}
