@@ -1,0 +1,51 @@
+body{ line-height: 1;
+}
+ol,ul{
+    list-style: none;
+}
+blockquote,q{
+    quotes: none;
+}
+blockquote::before,blockquote::after
+q::before,q::after{
+    content: '' ;
+    content: none;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*style css*/
+
+body{
+    font : 16px/28px arial, sans-serif;
+    background-color: #eaeaea;
+    color : red
+}
+
+.container{
+    width: 800px;
+    margin: auto;
+    background-color: wheat;
+}
+
+.header{
+    padding: 20px;
+}
+
+header.judul{
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+ul li{
+    display: inline-block;
+    padding: 5px;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+a{
+    text-decoration: none;
+    color : black;
+}
