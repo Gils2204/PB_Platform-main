@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio diri</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/975735deb1.js" crossorigin="gilang"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <a href="" class="title"  >Gilang</a>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><img src="images/darkmode.png" id="icon"></li>
+                <i class="fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Sanata Dharma IT student</p>
+            <h1>Hallo, saya <span>Gilang</span><br> asal dari Bekasi, Indonesia</h1>
+        </div>
+    </div>
+</div>
+<!---------------------about------------------------>
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title"> About Me</h1>
+                <p>19, hobi saya bermain game, bermain gitar dan membaca komik. saya merupakan anak pertama 
+                    dari 2 bersaudara yang suka jalan-jalan kemana pun menggunakan motor. Sekarang saya sedang menempuh 
+                    kuliah di Universitas Sanata Dharma dan sekarang sudah semester 4
+                </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <p class="tab-links" onclick="opentab('hobbies')">Hobbies</p>
+                </div>
+                <div class="tab-contents active-tab"    id="skills">
+                    <ul>
+                            <li><span>Bahasa Programming</span><br>Bahasa Programing yang saya bisa dan bahasa yang ingin saya pelajari.</li>
+                            <table>
+                                <tr>
+                                  <th>bahasa Programming</th>
+                                  <th> ✓ / X </th>
+                                 </tr>
+                                 <tr>
+                                  <td>Javascript</td>
+                                  <td>✓</td>
+                                 </tr>
+                                 <tr>
+                                  <td>Python</td>
+                                  <td>✓</td>
+                                 </tr>
+                                 <tr>
+                                    <td>Java</td>
+                                    <td>✓</td>
+                                  </tr>
+                                  <tr>
+                                    <td>PHP</td>
+                                    <td>X</td>
+                                  </tr>
+                                  <tr>
+                                    <td>C#</td>
+                                    <td>X</td>
+                                  </tr>
+                                  <tr>
+                                    <td>C and C++</td>
+                                    <td>X</td>
+                                  </tr>
+                                  <tr>
+                                    <td>HTML</td>
+                                    <td>✓</td>
+                                  </tr>
+                                  <tr>
+                                    <td>CSS</td>
+                                    <td>✓</td>
+                                  </tr>
+                              </table>
+                        </ul>
+                </div>
+                <div class="tab-contents"   id="hobbies">
+                    <ul>
+                            <li><span>Games</span><br>MMORPG,BattleRoyale,PVP</li>
+                            <li><span>Guitar</span><br>Fav Song December-NeckDeep & Slow Dancing in the Dark -JOJI</li>
+                            <li><span>Books</span><br>Japanese komik,novel,self Improvement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-------------------Portfolio---------------------->
+<div id="portfolio">
+    <div class="container">
+        
+        
+            </div>
+        </div>
+    </div>
+</div>
+<!------------------Weather Api--------------------->
+<section>
+    <div class="weather">
+        <div class="weather-box">
+            <div class="search">
+                <input class="search-bar" type="text">
+                <button><i alt="search-button" class="fa-solid fa-search"></i></button>
+            </div>
+            <div class="weatherinfo">
+                <div class="city"></div>
+                <img class="icon" src="" alt="">
+                <div class="description"></div>
+                <div class="temp"></div>
+                <div class="humidity"></div>
+                <div class="wind"></div>
+                <div class="weather loading"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--------------------Contact----------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-regular fa-envelope"></i> josephgilang22@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> 085814263249</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/eetualeksii_/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/eetu-purhonen-039007241/"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/ATKKepa"><i class="fa-brands fa-github"></i></i></a>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit"class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -19,8 +19,13 @@ table{
 
 body{
     font : 16px/28px arial, sans-serif;
+<<<<<<< HEAD
     background-color: red;
     color : black;
+=======
+    background-color: #eaeaea;
+    color : red
+>>>>>>> 7b57b6abfa5d66b913d922c967923d1ad2b78ef9
 }
 
 .container{
@@ -31,7 +36,10 @@ body{
 
 .header{
     padding: 20px;
+<<<<<<< HEAD
     padding-bottom: 5px;
+=======
+>>>>>>> 7b57b6abfa5d66b913d922c967923d1ad2b78ef9
 }
 
 header.judul{
@@ -49,6 +57,7 @@ ul li{
 a{
     text-decoration: none;
     color : black;
+<<<<<<< HEAD
 }
 .hero{
     height : 400px;
@@ -69,4 +78,6 @@ content .h2{
 content .Penulis {
     font-size: 14px;
     margin-top: -3px;
+=======
+>>>>>>> 7b57b6abfa5d66b913d922c967923d1ad2b78ef9
 }

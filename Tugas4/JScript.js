@@ -1,60 +1,103 @@
-// Java script.js
-document.getElementById('submitBtn').addEventListener('click', function() {
-  var nama = document.getElementById('nama').value;
-  var jumlah = parseInt(document.getElementById('jumlah').value);
+function buatInputan() {
+  const nama = document.getElementById('nama').value;
+  const jumlahPilihan = parseInt(document.getElementById('jumlahPilihan').value);
+  var app = document.getElementById('app'); // var digunakan sesuai permintaan
 
-  if (nama.trim() === '') {
-      alert('Nama tidak boleh kosong!');
-      return;
+  // Membersihkan konten app sebelum menambahkan elemen baru
+  app.textContent = '';
+
+  // Membuat dan menambahkan elemen-elemen form yang disabled
+  tambahElemenInput(app, 'Nama:', 'nama', nama, true);
+  tambahElemenInput(app, 'Jumlah Pilihan:', 'jumlahPilihan', jumlahPilihan, true);
+
+  // Menonaktifkan button setelah digunakan
+  var okButton = document.createElement('button');
+  okButton.textContent = 'OK';
+  okButton.disabled = true;
+  app.appendChild(okButton);
+
+  // Membuat inputan untuk setiap pilihan
+  for (let i = 1; i <= jumlahPilihan; i++) {
+      tambahElemenInput(app, `Pilihan ${i}:`, `pilihan${i}`, '', false);
   }
 
-  if (isNaN(jumlah) || jumlah <= 0) {
-      alert('Jumlah Pilihan harus angka dan lebih dari 0!');
-      return;
+  // Membuat button untuk submit pilihan
+  var submitButton = document.createElement('button');
+  submitButton.textContent = 'OK';
+  submitButton.onclick = buatPilihan;
+  app.appendChild(submitButton);
+}
+
+function tambahElemenInput(parent, labelText, id, value, disabled) {
+  var label = document.createElement('label');
+  label.setAttribute('for', id);
+  label.textContent = labelText;
+  parent.appendChild(label);
+
+  var input = document.createElement('input');
+  input.type = 'text';
+  input.id = id;
+  input.value = value;
+  input.disabled = disabled;
+  parent.appendChild(input);
+}
+
+function buatPilihan() {
+  const jumlahPilihan = parseInt(document.getElementById('jumlahPilihan').value);
+  var app = document.getElementById('app'); // var digunakan sesuai permintaan
+
+  // Membuat div untuk menampung pilihan final
+  var pilihanFinalDiv = document.createElement('div');
+  pilihanFinalDiv.id = 'pilihanFinal';
+  app.appendChild(pilihanFinalDiv);
+
+  // Mengumpulkan pilihan dan menambahkannya sebagai radio button
+  for (let i = 1; i <= jumlahPilihan; i++) {
+      var pilihanValue = document.getElementById(`pilihan${i}`).value;
+      var radioInput = document.createElement('input');
+      radioInput.type = 'radio';
+      radioInput.name = 'pilihan';
+      radioInput.value = pilihanValue;
+
+      var label = document.createElement('label');
+      label.textContent = pilihanValue;
+
+      pilihanFinalDiv.appendChild(radioInput);
+      pilihanFinalDiv.appendChild(label);
+      pilihanFinalDiv.appendChild(document.createElement('br'));
   }
 
-  var inputPilihanHtml = '';
-  for (var i = 1; i <= jumlah; i++) {
-      inputPilihanHtml += '<label for="pilihan' + i + '">Pilihan ' + i + ':</label>';
-      inputPilihanHtml += '<input type="text" id="pilihan' + i + '" required><br>';
-  }
-  inputPilihanHtml += '<button type="button" id="submitPilihanBtn">OK</button>'; // Menambahkan tombol OK di akhir
-  document.getElementById('inputPilihan').innerHTML = inputPilihanHtml;
-  document.getElementById('inputPilihan').style.display = 'block';
+  // Membuat button untuk mengonfirmasi pilihan final
+  var confirmButton = document.createElement('button');
+  confirmButton.textContent = 'OK';
+  confirmButton.onclick = tampilkanHasil;
+  app.appendChild(confirmButton);
+}
 
-  document.getElementById('submitPilihanBtn').addEventListener('click', function() { // Menambahkan event listener untuk tombol OK baru
-      var radioPilihanHtml = '';
-      for (var i = 1; i <= jumlah; i++) {
-          var teksPilihan = document.getElementById('pilihan' + i).value;
-          radioPilihanHtml += '<div class="radio-item">';
-          radioPilihanHtml += '<input type="radio" id="pilihanRadio' + i + '" name="pilihanRadio" value="' + teksPilihan + '">';
-          radioPilihanHtml += '<label for="pilihanRadio' + i + '">' + teksPilihan + '</label>';
-          radioPilihanHtml += '</div>';
+function tampilkanHasil() {
+  const nama = document.getElementById('nama').value; // Mengambil nama
+  const pilihanRadios = document.getElementsByName('pilihan'); // Mengambil semua radio buttons dengan nama 'pilihan'
+  let pilihanTerpilih;
+  
+  for (const radio of pilihanRadios) {
+      if (radio.checked) { // Mengecek radio button mana yang terpilih
+          pilihanTerpilih = radio.value;
+          break;
       }
-      radioPilihanHtml += '<button type="button" id="submitRadioBtn">OK</button>';
-      document.getElementById('radioPilihan').innerHTML = radioPilihanHtml;
-      document.getElementById('radioPilihan').style.display = 'block';
+  }
 
-      document.getElementById('submitRadioBtn').addEventListener('click', function() { // Menambahkan event listener untuk tombol OK baru
-          var pilihanRadio = document.querySelector('input[name="pilihanRadio"]:checked');
-          if (pilihanRadio) {
-              var nama = document.getElementById('nama').value;
-              var jumlah = document.getElementById('jumlah').value;
-              var teksPilihan = pilihanRadio.value;
-              var hasil = 'Hallo, nama saya ' + nama + ', saya mempunyai sejumlah ' + jumlah + ' pilihan yaitu ';
-              var pilihanLabels = document.querySelectorAll('input[name="pilihanRadio"]');
-              for (var i = 0; i < pilihanLabels.length; i++) {
-                  hasil += pilihanLabels[i].value;
-                  if (i < pilihanLabels.length - 1) {
-                      hasil += ', ';
-                  }
-              }
-              hasil += ', dan saya memilih ' + teksPilihan;
-              document.getElementById('hasil').innerText = hasil;
-              document.getElementById('hasil').style.display = 'block';
-          } else {
-              alert('Silakan pilih salah satu pilihan!');
-          }
-      });
-  });
-});
+  // Mengambil semua pilihan untuk menyusun daftar pilihan
+  const jumlahPilihan = parseInt(document.getElementById('jumlahPilihan').value);
+  let semuaPilihan = [];
+  for (let i = 1; i <= jumlahPilihan; i++) {
+      semuaPilihan.push(document.getElementById(`pilihan${i}`).value);
+  }
+
+  // Membersihkan app dan menampilkan hasil
+  var app = document.getElementById('app');
+  app.innerHTML = ''; // Membersihkan konten sebelumnya
+
+  const hasil = document.createElement('p');
+  hasil.textContent = `Hallo, nama saya ${nama}, saya mempunyai sejumlah ${jumlahPilihan} pilihan yaitu ${semuaPilihan.join(', ')}, dan saya memilih ${pilihanTerpilih}.`;
+  app.appendChild(hasil);
+}
